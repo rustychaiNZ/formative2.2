@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<!-- Required meta tags -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<!-- Custom CSS -->
+		<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+		<title>Club Registry</title>
+	</head>
+	<body>
+		<!-- Heading for the registry -->
+		<div class="jumbotron">
+			<h1 class="text-center">HVFC Club Registry</h1>
+		</div>
+
+		<!-- Body container -->
+		<div class="container">
+			<!-- Button container -->
+			<div class="btn-container row">
+				<div class="col">
+					<button id="allFencerBtn" class="btn btn-secondary btn-sm">All Fencers</button>
+				</div>
+			<!-- ___Min/Max Age___ -->
+				<!-- Selector for minimum age -->
+				<div class="col">
+					<select class="form-control form-control-sm" id="minAgeSelector" onchange="minAgeFilter()">
+						<option value="1">No Minimum Age</option>
+						<option value="2">U9</option>
+						<option value="3">U11</option>
+						<option value="4">U13</option>
+						<option value="5">U15</option>
+						<option value="6">U17</option>
+						<option value="7">U20</option>
+					</select>
+				</div>
+				<!-- Selector for maximum age -->
+				<div class="col">
+					<select class="form-control form-control-sm" id="maxAgeSelector" onchange="maxAgeFilter()">
+						<option value="1">No Maximum Age</option>
+						<option value="2">U9</option>
+						<option value="3">U11</option>
+						<option value="4">U13</option>
+						<option value="5">U15</option>
+						<option value="6">U17</option>
+						<option value="7">U20</option>
+					</select>
+				</div>
+			<!-- ___Min/Max End___ -->
+
+				<!-- Weapon Discipline filter -->
+				<div class="col">
+					<select class="form-control form-control-sm" id="weaponSelect" onchange="filterWeaponSelect()">
+						<option value="1">Filter Off</option>
+						<option value="2">Foil</option>
+						<option value="3">Sabre</option>
+						<option value="4">Epee</option>
+					</select>
+				</div>
+
+				<!-- Add new member modal button -->
+				<div class="col">
+					<button class="btn btn-secondary btn-sm" id="addNewMemberBtn">Add New Member</button>
+				</div>
+
+			</div>
+
+			<!-- Table print out container -->
+			<table id="registryResults" class="table table-hover table-striped text-center">
+				<thead class="thead-dark">
+					<tr>
+						<th>Name</th>
+						<th>Age</th>
+						<th>Weapon</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+
+		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<!-- Optional JavaScript -->
+		<script src="js/script.js"></script>
+
+	</body>
+</html>
