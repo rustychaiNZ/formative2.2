@@ -21,33 +21,35 @@
 		<!-- Body container -->
 		<div class="container">
 			<!-- Button container -->
-			<div class="btn-container row">
+			<div class="btn-container align-items-center row">
 				<div class="col">
 					<button id="allFencerBtn" class="btn btn-secondary btn-sm">All Fencers</button>
 				</div>
 			<!-- ___Min/Max Age___ -->
 				<!-- Selector for minimum age -->
 				<div class="col">
+					<label class="col-form-label" for="minAgeSelector">Minimum Age</label>
 					<select class="form-control form-control-sm" id="minAgeSelector" onchange="minAgeFilter()">
 						<option value="1">No Minimum Age</option>
-						<option value="2">U9</option>
-						<option value="3">U11</option>
-						<option value="4">U13</option>
-						<option value="5">U15</option>
-						<option value="6">U17</option>
-						<option value="7">U20</option>
+						<option value="2">9 Years Old</option>
+						<option value="3">11 Years Old</option>
+						<option value="4">13 Years Old</option>
+						<option value="5">15 Years Old</option>
+						<option value="6">17 Years Old</option>
+						<option value="7">20 Years Old</option>
 					</select>
 				</div>
 				<!-- Selector for maximum age -->
 				<div class="col">
+					<label class="col-form-label" for="maxAgeSelector">Maximum Age</label>
 					<select class="form-control form-control-sm" id="maxAgeSelector" onchange="maxAgeFilter()">
 						<option value="1">No Maximum Age</option>
-						<option value="2">U9</option>
-						<option value="3">U11</option>
-						<option value="4">U13</option>
-						<option value="5">U15</option>
-						<option value="6">U17</option>
-						<option value="7">U20</option>
+						<option value="2">Under 9</option>
+						<option value="3">Under 11</option>
+						<option value="4">Under 13</option>
+						<option value="5">Under 15</option>
+						<option value="6">Under 17</option>
+						<option value="7">Under 20</option>
 					</select>
 				</div>
 			<!-- ___Min/Max End___ -->
