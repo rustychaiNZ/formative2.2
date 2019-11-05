@@ -4,8 +4,8 @@ var fencer = [
 	{
 		id: 'f001',
 		firstName: 'Janet',
-		lastName: 'High',
-		weapon: 'Foil',
+		lastName: 'HIGH',
+		weapon: ['Foil', 'blank'],
 		age: 8,
 		gender: 'female',
 		fencerEmail: 'janetehigh@jourrapide.com',
@@ -15,8 +15,8 @@ var fencer = [
 	{
 		id: 'f002',
 		firstName: 'Gregory',
-		lastName: 'Edens',
-		weapon: 'Sabre',
+		lastName: 'EDENS',
+		weapon: ['Sabre', 'blank'],
 		age: 26,
 		gender: 'Male',
 		fencerEmail: 'gregoryaedens@jourrapide.com',
@@ -26,8 +26,8 @@ var fencer = [
 	{
 		id: 'f003',
 		firstName: 'James',
-		lastName: 'Gable',
-		weapon: 'Epee',
+		lastName: 'GABLE',
+		weapon: ['Epee', 'blank'],
 		age: 24,
 		gender: 'Male',
 		fencerEmail: 'JamesTGable@rhyta.com',
@@ -37,8 +37,8 @@ var fencer = [
 	{
 		id: 'f004',
 		firstName: 'Una',
-		lastName: 'Hajek',
-		weapon: 'Foil',
+		lastName: 'HAJEK',
+		weapon: ['Foil', 'blank'],
 		age: 12,
 		gender: 'Female',
 		fencerEmail: 'UnaJHajek@teleworm.us',
@@ -48,8 +48,8 @@ var fencer = [
 	{
 		id: 'f005',
 		firstName: 'Ruth',
-		lastName: 'Regan',
-		weapon: 'Sabre',
+		lastName: 'REGAN',
+		weapon: ['Sabre', 'blank'],
 		age: 20,
 		gender: 'Female',
 		fencerEmail: 'RuthRRegan@jourrapide.com',
@@ -59,8 +59,8 @@ var fencer = [
 	{
 		id: 'f006',
 		firstName: 'Gary',
-		lastName: 'Arias',
-		weapon: 'Foil',
+		lastName: 'ARIAS',
+		weapon: ['Foil', 'blank'],
 		age: 10,
 		gender: 'Male',
 		fencerEmail: 'GaryJArias@teleworm.us',
@@ -70,8 +70,8 @@ var fencer = [
 	{
 		id: 'f007',
 		firstName: 'Nicole',
-		lastName: 'Shea',
-		weapon: 'Epee',
+		lastName: 'SHEA',
+		weapon: ['Epee', 'blank'],
 		age: 8,
 		gender: 'Female',
 		fencerEmail: 'NicoleKShea@jourrapide.com',
@@ -81,8 +81,8 @@ var fencer = [
 	{
 		id: 'f008',
 		firstName: 'Garry',
-		lastName: 'Borden',
-		weapon: 'Foil',
+		lastName: 'BORDON',
+		weapon: ['Foil', 'blank'],
 		age: 19,
 		gender: 'Male',
 		fencerEmail: 'GarryDBorden@dayrep.com',
@@ -92,8 +92,8 @@ var fencer = [
 	{
 		id: 'f009',
 		firstName: 'Jamie',
-		lastName: 'Day',
-		weapon: 'Epee',
+		lastName: 'DAY',
+		weapon: ['Epee', 'blank'],
 		age: 16,
 		gender: 'Female',
 		fencerEmail: 'JaimeGDay@jourrapide.com',
@@ -103,8 +103,8 @@ var fencer = [
 	{
 		id: 'f010',
 		firstName: 'Nick',
-		lastName: 'Bailey',
-		weapon: 'Sabre',
+		lastName: 'BAILY',
+		weapon: ['Sabre', 'blank'],
 		age: 14,
 		gender: 'Male',
 		fencerEmail: 'NickPBailey@armyspy.com',
@@ -114,8 +114,8 @@ var fencer = [
 	{
 		id: 'f011',
 		firstName: 'Michael',
-		lastName: 'Glover',
-		weapon: 'Foil',
+		lastName: 'GLOVER',
+		weapon: ['Foil', 'blank'],
 		age: 15,
 		gender: 'Male',
 		fencerEmail: 'MichaelCGlover@armyspy.com',
@@ -125,8 +125,8 @@ var fencer = [
 	{
 		id: 'f012',
 		firstName: 'Jennifer',
-		lastName: 'Shields',
-		weapon: 'Sabre',
+		lastName: 'SHIELDS',
+		weapon: ['Sabre', 'blank'],
 		age: 12,
 		gender: 'Female',
 		fencerEmail: 'JenniferLShields@dayrep.com',
@@ -136,8 +136,8 @@ var fencer = [
 	{
 		id: 'f013',
 		firstName: 'Laura',
-		lastName: 'Jones',
-		weapon: 'Epee',
+		lastName: 'JONES',
+		weapon: ['Epee', 'blank'],
 		age: 18,
 		gender: 'Female',
 		fencerEmail: 'LauraWJones@rhyta.com',
@@ -147,8 +147,8 @@ var fencer = [
 	{
 		id: 'f014',
 		firstName: 'Jarrett',
-		lastName: 'Johnson',
-		weapon: 'Sabre',
+		lastName: 'JOHNSON',
+		weapon: ['Sabre', 'blank'],
 		age: 11,
 		gender: 'Male',
 		fencerEmail: 'JarrettPJohnson@jourrapide.com',
@@ -158,8 +158,8 @@ var fencer = [
 	{
 		id: 'f015',
 		firstName: 'David',
-		lastName: 'Robbs',
-		weapon: 'Epee',
+		lastName: 'ROBBS',
+		weapon: ['Epee', 'blank'],
 		age: 14,
 		gender: 'Male',
 		fencerEmail: 'DavidRRobbs@armyspy.com',
@@ -168,6 +168,9 @@ var fencer = [
 	},
 
 ]
+var minimumAge = 0;
+var maximumAge = 99;
+var weaponSelected = 'blank';
 
 // Function to clear printed table
 function clear(){
@@ -190,9 +193,9 @@ function tableHeading(){
 function writeFencers(){
 	document.getElementById('registryResults').innerHTML += 
 	'<tr>' +
-		'<td>' + fencer[i].firstName + ' ' + fencer[i].lastName + '</td>' +
+		'<td>' + fencer[i].lastName + ', ' + fencer[i].firstName + '</td>' +
 		'<td>' + fencer[i].age + '</td>' +
-		'<td>' + fencer[i].weapon + '</td>' +
+		'<td>' + fencer[i].weapon[0] + '</td>' +
 	'</tr>';
 }
 
@@ -200,44 +203,33 @@ function writeFencers(){
 function filterWeaponSelect(){
 	// Takes value from weapon select 
 	var filteredWeapon = document.getElementById('weaponSelect').value;
+
+	clear();
+	tableHeading();
 	
 	// No weapon is selected
 	if(filteredWeapon == 1){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			writeFencers();
-		}
+		weaponSelected = 'blank';
+		console.log(weaponSelected);
 	} 
 	// Foil filter
 	else if(filteredWeapon == 2){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			// Displays all members who do foil
-			if(fencer[i].weapon == 'Foil'){
-				writeFencers();
-			}
-		}
+		weaponSelected = 'Foil';
+		console.log(weaponSelected);
 	} 
 	// Sabre Filter
 	else if(filteredWeapon == 3){
-		clear();
-		tableHeading()
-		for(i=0; i < fencer.length; i++){
-			// Displays all members who do Sabre
-			if(fencer[i].weapon == 'Sabre'){
-				writeFencers();
-			}
-		}
+		weaponSelected = 'Sabre';
+		console.log(weaponSelected);
 	} 
 	// Epee filter
 	else if(filteredWeapon == 4) {
-		clear();
-		tableHeading()
+		weaponSelected = 'Epee';
+		console.log(weaponSelected);
+	}
+	for(j=0; j < 2; j++){
 		for(i=0; i < fencer.length; i++){
-			// Displays all members who do Epee
-			if(fencer[i].weapon == 'Epee'){
+			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
 				writeFencers();
 			}
 		}
@@ -249,71 +241,40 @@ function minAgeFilter(){
 	// takes value from min age select
 	var minAge = document.getElementById('minAgeSelector').value;
 
+	clear();
+	tableHeading();
+
 	// No min age selected
 	if(minAge == 1){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			writeFencers();
-		}
-		filterWeaponSelect();
+		minimumAge = 0;
 	}
 	// Older than U9
 	else if(minAge == 2){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age >= 9){
-				writeFencers();
-			}
-		}
+		minimumAge = 9;
 	}
 	// Older than U11
 	else if(minAge == 3){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age >= 11){
-				writeFencers();
-			}
-		}
+		minimumAge = 11;
 	}
 	// Older than U13
 	else if(minAge == 4){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age >= 13){
-				writeFencers();
-			}
-		}
+		minimumAge = 13;
 	}
 	// Older than U15
 	else if(minAge == 5){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age >= 15){
-				writeFencers();
-			}
-		}
+		minimumAge = 15;
 	}
 	// Older than U17
 	else if(minAge == 6){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age >= 17){
-				writeFencers();
-			}
-		}
+		minimumAge = 17;
 	}
 	// Older than U20
 	else if(minAge == 7){
-		clear();
-		tableHeading();
+		minimumAge = 20;
+	}
+	for(j=0; j < 2; j++){
 		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age >= 20){
+			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
 				writeFencers();
 			}
 		}
@@ -325,76 +286,47 @@ function maxAgeFilter(){
 	// takes value from max age select
 	var maxAge = document.getElementById('maxAgeSelector').value;
 
+	clear();
+	tableHeading();
+
 	// No max age selected
 	if(maxAge == 1){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			writeFencers();
-		}
-		filterWeaponSelect();
+		maximumAge = 99;
 	}
 	// Older than U9
 	else if(maxAge == 2){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age <= 9){
-				writeFencers();
-			}
-		}
+		maximumAge = 9;
 	}
 	// Older than U11
 	else if(maxAge == 3){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age <= 11){
-				writeFencers();
-			}
-		}
+		maximumAge = 11;
 	}
 	// Older than U13
 	else if(maxAge == 4){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age <= 13){
-				writeFencers();
-			}
-		}
+		maximumAge = 13;
 	}
 	// Older than U15
 	else if(maxAge == 5){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age <= 15){
-				writeFencers();
-			}
-		}
+		maximumAge = 15;
 	}
 	// Older than U17
 	else if(maxAge == 6){
-		clear();
-		tableHeading();
-		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age <= 17){
-				writeFencers();
-			}
-		}
+		maximumAge = 17;
 	}
 	// Older than U20
 	else if(maxAge == 7){
-		clear();
-		tableHeading();
+		maximumAge = 20;
+	}
+	for(j=0; j < 2; j++){
 		for(i=0; i < fencer.length; i++){
-			if(fencer[i].age <= 20){
+			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
 				writeFencers();
 			}
 		}
 	}
 }
+
+
 
 // Resets filter options
 function resetWeaponFilter(){
@@ -402,6 +334,9 @@ function resetWeaponFilter(){
 }
 function resetMinAgeFilter(){
 	document.getElementById('minAgeSelector').value = 1;
+}
+function resetMaxAgeFilter(){
+	document.getElementById('maxAgeSelector').value =1;
 }
 
 // Button clickable to reveal all members in the registry 
@@ -416,6 +351,7 @@ document.getElementById('allFencerBtn').addEventListener('click', function(){
 	}
 	resetWeaponFilter();
 	resetMinAgeFilter();
+	resetMaxAgeFilter();
 });
 
 
