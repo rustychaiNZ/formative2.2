@@ -168,8 +168,11 @@ var fencer = [
 	},
 
 ]
+// Variable used to store minimum age in filtered range
 var minimumAge = 0;
+// Variable used to store the maximum age in filtered range
 var maximumAge = 99;
+// Variable used to store the correct weapon in filtered range
 var weaponSelected = 'blank';
 
 // Function to clear printed table
@@ -210,24 +213,20 @@ function filterWeaponSelect(){
 	// No weapon is selected
 	if(filteredWeapon == 1){
 		weaponSelected = 'blank';
-		console.log(weaponSelected);
 	} 
 	// Foil filter
 	else if(filteredWeapon == 2){
 		weaponSelected = 'Foil';
-		console.log(weaponSelected);
 	} 
 	// Sabre Filter
 	else if(filteredWeapon == 3){
 		weaponSelected = 'Sabre';
-		console.log(weaponSelected);
 	} 
 	// Epee filter
 	else if(filteredWeapon == 4) {
 		weaponSelected = 'Epee';
-		console.log(weaponSelected);
 	}
-	for(j=0; j < 2; j++){
+	for(j=0; j < 1; j++){
 		for(i=0; i < fencer.length; i++){
 			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
 				writeFencers();
@@ -272,7 +271,7 @@ function minAgeFilter(){
 	else if(minAge == 7){
 		minimumAge = 20;
 	}
-	for(j=0; j < 2; j++){
+	for(j=0; j < 1; j++){
 		for(i=0; i < fencer.length; i++){
 			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
 				writeFencers();
@@ -317,7 +316,7 @@ function maxAgeFilter(){
 	else if(maxAge == 7){
 		maximumAge = 20;
 	}
-	for(j=0; j < 2; j++){
+	for(j=0; j < 1; j++){
 		for(i=0; i < fencer.length; i++){
 			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
 				writeFencers();
@@ -336,7 +335,7 @@ function resetMinAgeFilter(){
 	document.getElementById('minAgeSelector').value = 1;
 }
 function resetMaxAgeFilter(){
-	document.getElementById('maxAgeSelector').value =1;
+	document.getElementById('maxAgeSelector').value = 1;
 }
 
 // Button clickable to reveal all members in the registry 
@@ -352,6 +351,9 @@ document.getElementById('allFencerBtn').addEventListener('click', function(){
 	resetWeaponFilter();
 	resetMinAgeFilter();
 	resetMaxAgeFilter();
+	maximumAge = 99;
+	minimumAge = 0;
+	weaponSelected = 'blank';
 });
 
 
