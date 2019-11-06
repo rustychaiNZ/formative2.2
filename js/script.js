@@ -2,7 +2,7 @@
 var fencer = [
 	// First member of the club
 	{
-		id: 'f001',
+		id: 'f101',
 		firstName: 'Janet',
 		lastName: 'HIGH',
 		weapon: ['Foil', 'blank'],
@@ -13,7 +13,7 @@ var fencer = [
 		emergencyNumber: '027 895 6875'
 	},
 	{
-		id: 'f002',
+		id: 'f102',
 		firstName: 'Gregory',
 		lastName: 'EDENS',
 		weapon: ['Sabre', 'blank'],
@@ -24,7 +24,7 @@ var fencer = [
 		emergencyNumber: '027 596 8423'
 	},
 	{
-		id: 'f003',
+		id: 'f103',
 		firstName: 'James',
 		lastName: 'GABLE',
 		weapon: ['Epee', 'blank'],
@@ -35,7 +35,7 @@ var fencer = [
 		emergencyNumber: '027 456 8923'
 	},
 	{
-		id: 'f004',
+		id: 'f104',
 		firstName: 'Una',
 		lastName: 'HAJEK',
 		weapon: ['Foil', 'blank'],
@@ -46,7 +46,7 @@ var fencer = [
 		emergencyNumber: '022 897 5687'
 	},
 	{
-		id: 'f005',
+		id: 'f105',
 		firstName: 'Ruth',
 		lastName: 'REGAN',
 		weapon: ['Sabre', 'blank'],
@@ -57,7 +57,7 @@ var fencer = [
 		emergencyNumber: '021 568 7892'
 	},
 	{
-		id: 'f006',
+		id: 'f106',
 		firstName: 'Gary',
 		lastName: 'ARIAS',
 		weapon: ['Foil', 'blank'],
@@ -68,7 +68,7 @@ var fencer = [
 		emergencyNumber: '022 568 7896'
 	},
 	{
-		id: 'f007',
+		id: 'f107',
 		firstName: 'Nicole',
 		lastName: 'SHEA',
 		weapon: ['Epee', 'blank'],
@@ -79,7 +79,7 @@ var fencer = [
 		emergencyNumber: '022 578 4562'
 	},
 	{
-		id: 'f008',
+		id: 'f108',
 		firstName: 'Garry',
 		lastName: 'BORDON',
 		weapon: ['Foil', 'blank'],
@@ -90,7 +90,7 @@ var fencer = [
 		emergencyNumber: '022 892 4568'
 	},
 	{
-		id: 'f009',
+		id: 'f109',
 		firstName: 'Jamie',
 		lastName: 'DAY',
 		weapon: ['Epee', 'blank'],
@@ -101,7 +101,7 @@ var fencer = [
 		emergencyNumber: '021 895 5987'
 	},
 	{
-		id: 'f010',
+		id: 'f110',
 		firstName: 'Nick',
 		lastName: 'BAILY',
 		weapon: ['Sabre', 'blank'],
@@ -112,7 +112,7 @@ var fencer = [
 		emergencyNumber: '022 596 5687'
 	},
 	{
-		id: 'f011',
+		id: 'f111',
 		firstName: 'Michael',
 		lastName: 'GLOVER',
 		weapon: ['Foil', 'blank'],
@@ -123,7 +123,7 @@ var fencer = [
 		emergencyNumber: '021 567 5621'
 	},
 	{
-		id: 'f012',
+		id: 'f112',
 		firstName: 'Jennifer',
 		lastName: 'SHIELDS',
 		weapon: ['Sabre', 'blank'],
@@ -134,7 +134,7 @@ var fencer = [
 		emergencyNumber: '021 895 4568'
 	},
 	{
-		id: 'f013',
+		id: 'f113',
 		firstName: 'Laura',
 		lastName: 'JONES',
 		weapon: ['Epee', 'blank'],
@@ -145,7 +145,7 @@ var fencer = [
 		emergencyNumber: '022 489 6578'
 	},
 	{
-		id: 'f014',
+		id: 'f114',
 		firstName: 'Jarrett',
 		lastName: 'JOHNSON',
 		weapon: ['Sabre', 'blank'],
@@ -156,7 +156,7 @@ var fencer = [
 		emergencyNumber: '022 657 8956'
 	},
 	{
-		id: 'f015',
+		id: 'f115',
 		firstName: 'David',
 		lastName: 'ROBBS',
 		weapon: ['Epee', 'blank'],
@@ -174,6 +174,8 @@ var minimumAge = 0;
 var maximumAge = 99;
 // Variable used to store the correct weapon in filtered range
 var weaponSelected = 'blank';
+// Sets id so that the user is able to click on a member's name for a modal to pop up
+var id = 101;
 
 // Function to clear printed table
 function clear(){
@@ -185,7 +187,7 @@ function tableHeading(){
 	document.getElementById('registryResults').innerHTML += 
 	'<thead class="thead-dark">' +
 		'<tr>' +
-			'<th>Name</th>' +
+			'<th>Name</th>' + 
 			'<th>Age</th>' +
 			'<th>Weapon</th>' +
 		'</tr>' +
@@ -196,11 +198,97 @@ function tableHeading(){
 function writeFencers(){
 	document.getElementById('registryResults').innerHTML += 
 	'<tr>' +
-		'<td>' + fencer[i].lastName + ', ' + fencer[i].firstName + '</td>' +
+		'<td id="f' + id.toString() + '" class="member-popup" >' + fencer[i].lastName + ', ' + fencer[i].firstName + '</td>' +
 		'<td>' + fencer[i].age + '</td>' +
 		'<td>' + fencer[i].weapon[0] + '</td>' +
 	'</tr>';
 }
+
+// Writes fencer's info for filters
+	/*
+		* The first loop looks at what weapon that the fencer users
+		* The second loop looks through all of the members in the list
+		* If the filter applies to the fencer, the correct information will be displayed
+		* If no weapon has been selected, the second weapon a fencer could patisipate in is 'blank' which allows all of the fencers that meet the other filters to be displayed
+	*/
+function writeFilterFencerInfo(){
+	for(j=0; j < 2; j++){
+		for(i=0; i < fencer.length; i++){
+			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
+				writeFencers();
+			}
+		}
+	}
+}
+
+// --- Modals ---
+/*
+	* There are 2 different modals being used by the site
+	* The first modal allows the user to be able to view all of the information in the fencer object
+	* The second modal allows the user to be able to temporairly add a new user to the array 
+*/
+
+// Function to open the member modal
+function openMemberInfo(){
+	// Shows my custom modal of any particular member that the user clicks on 
+	$('.member-popup').on('click', function(){
+		// Shows the id of the fencer that was clicked in the console, used for trouble shooting 
+		console.log(this.id);
+		console.log('it worked!');
+		// Reveals the modal that the information is going to be shown in 
+		$('.member-modal-info').show();
+		for(i=0; i<fencer.length; i++) {
+			// This looks at the id defined and checksfor equivalence with the fencer's id that was clicked. It will dispaly the information
+			if(this.id.trim() == fencer[i].id.trim()) {
+				// Prints the dog that was clicked into the modal with the correlating information
+				writeFencerInfo();
+			}
+		}
+	});
+
+	// This allows the user to be able to close the modal by hitting the 'x' in the top right of the modal
+	$('.close-bar').on('click', function() {
+		// Used for trouble shooting to make sure that the button press was being recorded
+		console.log('Close Modal');
+		// Hides the modal on clicking the button
+		$('.member-modal-info').hide();
+	});
+}
+
+// Writes fencer's info to a modal
+function writeFencerInfo(){
+	document.getElementById('memberInfoModal').innerHTML = 
+	'<div class="row modal-data">' +
+		// Personal details, Name(first and last), Age, Gender and Weapon
+		'<div class="col-6">' +
+			'<h3>Name</h3>' +
+			'<p class="modal-para">' + fencer[i].lastName + ', ' + fencer[i].firstName + 
+			'<h3>Age</h3>' +
+			'<p class="modal-para">' + fencer[i].age + ' years old' +
+			'<h3>Gender</h3>' +
+			'<p class="modal-para">' + fencer[i].gender +
+			'<h3>Weapon</h3>' + 
+			'<p class="modal-para">' + fencer[i].weapon[0] + 
+		'</div>' +
+		// Contact information, Fencer's email, fencer's number, emergency number
+		'<div class="col-6">' +
+			'<h3 class="r-align">Fencer\'s Email</h3>' + 
+			'<p class="modal-para r-align">' + fencer[i].fencerEmail + '</p>' +
+			'<h3 class="r-align">Fencer\'s Number</h3>' +
+			'<p class="modal-para r-align">' + fencer[i].fencerNumber + '</p>' +
+			'<h3 class="r-align">Emergency Number</h3>' + 
+			'<p class="modal-para r-align">' + fencer[i].emergencyNumber + '<p>' +
+		'</div>' +
+	'</div>'
+}
+
+for(i=0; i<fencer.length; i++){
+	writeFencers();
+	openMemberInfo();
+}
+
+
+// --- Filters that can be applied to the array to find age range and weapon fenced ---
 
 // Function to apply a weapons filter
 function filterWeaponSelect(){
@@ -226,13 +314,7 @@ function filterWeaponSelect(){
 	else if(filteredWeapon == 4) {
 		weaponSelected = 'Epee';
 	}
-	for(j=0; j < 1; j++){
-		for(i=0; i < fencer.length; i++){
-			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
-				writeFencers();
-			}
-		}
-	}
+	writeFilterFencerInfo();
 }
 
 // Function to apply minmin age filter
@@ -271,13 +353,7 @@ function minAgeFilter(){
 	else if(minAge == 7){
 		minimumAge = 20;
 	}
-	for(j=0; j < 1; j++){
-		for(i=0; i < fencer.length; i++){
-			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
-				writeFencers();
-			}
-		}
-	}
+	writeFilterFencerInfo();
 }
 
 // function to apply a max age filter
@@ -316,13 +392,7 @@ function maxAgeFilter(){
 	else if(maxAge == 7){
 		maximumAge = 20;
 	}
-	for(j=0; j < 1; j++){
-		for(i=0; i < fencer.length; i++){
-			if((fencer[i].age >= minimumAge) && (fencer[i].age <= maximumAge) && (fencer[i].weapon[j] === weaponSelected)){
-				writeFencers();
-			}
-		}
-	}
+	writeFilterFencerInfo();
 }
 
 
@@ -354,7 +424,47 @@ document.getElementById('allFencerBtn').addEventListener('click', function(){
 	maximumAge = 99;
 	minimumAge = 0;
 	weaponSelected = 'blank';
+	openMemberInfo();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

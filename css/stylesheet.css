@@ -16,3 +16,42 @@ body{
 .btn-container{
 	padding: 20px;
 }
+
+/* Modal styling */
+.member-modal-info{
+	z-index: 99;
+	background: #fff;
+	/*max-width: 60%;*/
+	/*max-height: 80vh;*/
+	display: none;
+	position: fixed;
+	top: 20%;
+	left: 20%;
+	right: 20%;
+	max-height: 80vh;
+	box-shadow: 10px 10px 25px #333;
+}
+.close-bar{
+	font-size: 50px;
+	text-align: right;
+	padding: 0 20px;
+	cursor: pointer;
+	background-color: #2e3d54;
+	color: #edf1f7;
+}
+.modal-para{
+	font-size: 1.5em;
+}
+h3{
+	font-size: 2.3em;
+}
+.r-align{
+	text-align: right;
+}
+.member-popup{
+	color: blue;
+	cursor: pointer;
+}
+.modal-data{
+	padding: 15px 50px;
+}
