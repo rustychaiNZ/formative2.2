@@ -167,38 +167,24 @@ var fencer = [
 		emergencyNumber: '027 568 7892'
 	},
 
-]
+];
 // Variable used to store minimum age in filtered range
 var minimumAge = 0;
 // Variable used to store the maximum age in filtered range
 var maximumAge = 99;
 // Variable used to store the correct weapon in filtered range
 var weaponSelected = 'blank';
-// Sets id so that the user is able to click on a member's name for a modal to pop up
-var id = 101;
 
 // Function to clear printed table
 function clear(){
 	document.getElementById('registryResults').innerHTML = '';
 }
 
-// Creating table heading
-function tableHeading(){
-	document.getElementById('registryResults').innerHTML += 
-	'<thead class="thead-dark">' +
-		'<tr>' +
-			'<th>Name</th>' + 
-			'<th>Age</th>' +
-			'<th>Weapon</th>' +
-		'</tr>' +
-	'</thead>';
-}
-
 // Function that writes appropriate information to results table
 function writeFencers(){
 	document.getElementById('registryResults').innerHTML += 
 	'<tr>' +
-		'<td id="f' + id.toString() + '" class="member-popup" >' + fencer[i].lastName + ', ' + fencer[i].firstName + '</td>' +
+		'<td id="' + fencer[i].id + '" class="member-popup" >' + fencer[i].lastName + ', ' + fencer[i].firstName + '</td>' +
 		'<td>' + fencer[i].age + '</td>' +
 		'<td>' + fencer[i].weapon[0] + '</td>' +
 	'</tr>';
@@ -234,9 +220,8 @@ function openMemberInfo(){
 	$('.member-popup').on('click', function(){
 		// Shows the id of the fencer that was clicked in the console, used for trouble shooting 
 		console.log(this.id);
-		console.log('it worked!');
 		// Reveals the modal that the information is going to be shown in 
-		$('.member-modal-info').show();
+		$('.member-modal').show();
 		for(i=0; i<fencer.length; i++) {
 			// This looks at the id defined and checksfor equivalence with the fencer's id that was clicked. It will dispaly the information
 			if(this.id.trim() == fencer[i].id.trim()) {
@@ -251,7 +236,13 @@ function openMemberInfo(){
 		// Used for trouble shooting to make sure that the button press was being recorded
 		console.log('Close Modal');
 		// Hides the modal on clicking the button
-		$('.member-modal-info').hide();
+		$('.member-modal').hide();
+		// When the modal is hidden, we want to remain at the top of the scroll position
+		document.body.style.position = '';
+	});
+	// Close the modal clicking the close button
+	$('#closeFencerInfo').on('click', function() {
+		$('.member-modal').hide();
 	});
 }
 
@@ -279,14 +270,8 @@ function writeFencerInfo(){
 			'<h3 class="r-align">Emergency Number</h3>' + 
 			'<p class="modal-para r-align">' + fencer[i].emergencyNumber + '<p>' +
 		'</div>' +
-	'</div>'
+	'</div>';
 }
-
-for(i=0; i<fencer.length; i++){
-	writeFencers();
-	openMemberInfo();
-}
-
 
 // --- Filters that can be applied to the array to find age range and weapon fenced ---
 
@@ -296,7 +281,6 @@ function filterWeaponSelect(){
 	var filteredWeapon = document.getElementById('weaponSelect').value;
 
 	clear();
-	tableHeading();
 	
 	// No weapon is selected
 	if(filteredWeapon == 1){
@@ -315,6 +299,7 @@ function filterWeaponSelect(){
 		weaponSelected = 'Epee';
 	}
 	writeFilterFencerInfo();
+	openMemberInfo();
 }
 
 // Function to apply minmin age filter
@@ -323,7 +308,6 @@ function minAgeFilter(){
 	var minAge = document.getElementById('minAgeSelector').value;
 
 	clear();
-	tableHeading();
 
 	// No min age selected
 	if(minAge == 1){
@@ -354,6 +338,7 @@ function minAgeFilter(){
 		minimumAge = 20;
 	}
 	writeFilterFencerInfo();
+	openMemberInfo();
 }
 
 // function to apply a max age filter
@@ -362,7 +347,6 @@ function maxAgeFilter(){
 	var maxAge = document.getElementById('maxAgeSelector').value;
 
 	clear();
-	tableHeading();
 
 	// No max age selected
 	if(maxAge == 1){
@@ -393,6 +377,7 @@ function maxAgeFilter(){
 		maximumAge = 20;
 	}
 	writeFilterFencerInfo();
+	openMemberInfo();
 }
 
 
@@ -413,7 +398,6 @@ document.getElementById('allFencerBtn').addEventListener('click', function(){
 	// Clears table upon pressing button
 	clear();
 	// Adds table heading
-	tableHeading();
 	// Loops through all fencers in array
 	for(i=0; i < fencer.length; i++){
 		writeFencers();
@@ -427,20 +411,109 @@ document.getElementById('allFencerBtn').addEventListener('click', function(){
 	openMemberInfo();
 });
 
+// Toggleble heading to sort by name of fencers
+function sortTableAlphabetical(n){
+	// All of the variables being declared at the start
+	var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+	// Adds the table output to a variable
+	table = document.getElementById('memberTable');
+	switching = true;
+	// Set the sorting direction to ascending:
+	dir = "asc";
+	// Make a loop that will continue until no switching has been done:
+	while(switching){
+		// Start by saying: no switching is done:
+		switching = false;
+		rows = table.rows;
+		// Loop through all table rows (except the first, which contains table headers):
+		for (i = 1; i < (rows.length - 1); i++) {
+			//start by saying there should be no switching:
+			shouldSwitch = false;
+			//Get the two elements you want to compare, one from current row and one from the next:
+			x = rows[i].getElementsByTagName("TD")[n];
+			y = rows[i + 1].getElementsByTagName("TD")[n];
+			// Check if the two rows should switch place, based on the direction, asc or desc:
+			if(dir == 'asc'){
+				if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+				//if so, mark as a switch and break the loop:
+				shouldSwitch= true;
+				break;
+				}
+			} else if (dir == "desc"){
+				if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()){
+					//if so, mark as a switch and break the loop:
+					shouldSwitch = true;
+					break;
+				}
+			}
+		}
+		if (shouldSwitch){
+			//If a switch has been marked, make the switch and mark that a switch has been done:
+			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			switching = true;
+			//Each time a switch is done, increase this count by 1:
+			switchcount ++;
+		} else {
+			// If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again.
+			if (switchcount == 0 && dir == "asc"){
+				dir = "desc";
+				switching = true;
+			}
+		}
+	}
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Toggleble heading to sort by age
+function sortTableinteger(n){
+	// All of the variables being declared at the start
+	var table, rows, switching, i, x, y, shouldSwitch, switchcount = 0;
+	// Adds the table output to a variable
+	table = document.getElementById('memberTable');
+	switching = true;
+	// Set the sorting direction to ascending:
+	dir = "asc";
+	// Make a loop that will continue until no switching has been done:
+	while(switching){
+		// Start by saying: no switching is done:
+		switching = false;
+		rows = table.rows;
+		// Loop through all table rows (except the first, which contains table headers):
+		for (i = 1; i < (rows.length - 1); i++) {
+			// Start by saying there should be no switching:
+			shouldSwitch = false;
+			//Get the two elements you want to compare, one from current row and one from the next:
+			x = rows[i].getElementsByTagName("TD")[n];
+			y = rows[i + 1].getElementsByTagName("TD")[n];
+			// Check if the two rows should switch place, based on the direction, asc or desc:
+			if(dir == 'asc'){
+				if (Number(x.innerHTML) > Number(y.innerHTML)){
+				//if so, mark as a switch and break the loop:
+				shouldSwitch = true;
+				break;
+				}
+			} else if (dir == "desc"){
+				if (Number(x.innerHTML) > Number(y.innerHTML)){
+					//if so, mark as a switch and break the loop:
+					shouldSwitch = true;
+					break;
+				}
+			}
+		}
+		if (shouldSwitch){
+			//If a switch has been marked, make the switch and mark that a switch has been done:
+			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			switching = true;
+			//Each time a switch is done, increase this count by 1:
+			switchcount ++;
+		} else {
+			// If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again.
+			if (switchcount == 0 && dir == "asc"){
+				dir = "desc";
+				switching = true;
+			}
+		}
+	}
+}
 
 
 

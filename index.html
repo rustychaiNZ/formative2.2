@@ -27,7 +27,7 @@
 				</div>
 			<!-- ___Min/Max Age___ -->
 				<!-- Selector for minimum age -->
-				<div class="col">
+				<div class="col-lg">
 					<label class="col-form-label" for="minAgeSelector">Minimum Age</label>
 					<select class="form-control form-control-sm" id="minAgeSelector" onchange="minAgeFilter()">
 						<option value="1">No Minimum Age</option>
@@ -40,22 +40,22 @@
 					</select>
 				</div>
 				<!-- Selector for maximum age -->
-				<div class="col">
+				<div class="col-lg">
 					<label class="col-form-label" for="maxAgeSelector">Maximum Age</label>
 					<select class="form-control form-control-sm" id="maxAgeSelector" onchange="maxAgeFilter()">
 						<option value="1">No Maximum Age</option>
-						<option value="2">Under 9</option>
-						<option value="3">Under 11</option>
-						<option value="4">Under 13</option>
-						<option value="5">Under 15</option>
-						<option value="6">Under 17</option>
-						<option value="7">Under 20</option>
+						<option value="2">9 and under</option>
+						<option value="3">11 and under</option>
+						<option value="4">13 and under</option>
+						<option value="5">15 and under</option>
+						<option value="6">17 and under</option>
+						<option value="7">20 and under</option>
 					</select>
 				</div>
 			<!-- ___Min/Max End___ -->
 
 				<!-- Weapon Discipline filter -->
-				<div class="col">
+				<div class="col-lg">
 					<label class="col-form-label" for="weaponSelect">Select Weapon</label>
 					<select class="form-control form-control-sm" id="weaponSelect" onchange="filterWeaponSelect()">
 						<option value="1">Filter Off</option>
@@ -66,34 +66,40 @@
 				</div>
 
 				<!-- Add new member modal button -->
-				<div class="col">
+				<div class="col-lg">
 					<button class="btn btn-secondary btn-sm" id="addNewMemberBtn">Add New Member</button>
 				</div>
 
 			</div>
 
 			<!-- Table print out container -->
-			<table id="registryResults" class="table table-hover table-striped text-center">
+			<table class="table table-hover table-striped text-center" id="memberTable">
 				<thead class="thead-dark">
 					<tr>
-						<th>Name</th>
-						<th>Age</th>
+						<th class="table-sort" id="sortByName" onclick="sortTableAlphabetical(0)">Name</th>
+						<th class="table-sort" onclick="sortTableinteger(0)">Age</th>
 						<th>Weapon</th>
 					</tr>
 				</thead>
+				<tbody id="registryResults">
+					
+				</tbody>
 			</table>
-		</div>
 
 		<!-- Member information modal pop up. Triggers upon user clicking on a fencer's name -->
-		<div class="member-modal-info">
-			<div class="close-bar">
-				&times;
-			</div>
-			<div id="memberInfoModal" class="member-info-popup">
-
+		<div class="member-modal">
+			<div class="member-modal-info">
+				<div class="close-bar">
+					&times;
+				</div>
+				<div id="memberInfoModal" class="member-info-popup">
+	
+				</div>
+				<div class="col-12 close-modal-btn"> 
+					<button class="btn btn-block btn-danger" id="closeFencerInfo">Close</button>
+				</div>
 			</div>
 		</div>
-
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
