@@ -207,6 +207,33 @@ function writeFilterFencerInfo(){
 	}
 }
 
+// Writes fencer's info to a modal
+function writeFencerInfo(){
+	document.getElementById('memberInfoModal').innerHTML = 
+	'<div class="row modal-data">' +
+		// Personal details, Name(first and last), Age, Gender and Weapon
+		'<div class="col-6">' +
+			'<h3>Name</h3>' +
+			'<p class="modal-para">' + fencer[i].lastName + ', ' + fencer[i].firstName + 
+			'<h3>Age</h3>' +
+			'<p class="modal-para">' + fencer[i].age + ' years old' +
+			'<h3>Gender</h3>' +
+			'<p class="modal-para">' + fencer[i].gender +
+			'<h3>Weapon</h3>' + 
+			'<p class="modal-para">' + fencer[i].weapon[0] + 
+		'</div>' +
+		// Contact information, Fencer's email, fencer's number, emergency number
+		'<div class="col-6">' +
+			'<h3 class="r-align">Fencer\'s Email</h3>' + 
+			'<p class="modal-para r-align">' + fencer[i].fencerEmail + '</p>' +
+			'<h3 class="r-align">Fencer\'s Number</h3>' +
+			'<p class="modal-para r-align">' + fencer[i].fencerNumber + '</p>' +
+			'<h3 class="r-align">Emergency Number</h3>' + 
+			'<p class="modal-para r-align">' + fencer[i].emergencyNumber + '<p>' +
+		'</div>' +
+	'</div>';
+}
+
 // --- Modals ---
 /*
 	* There are 2 different modals being used by the site
@@ -246,32 +273,22 @@ function openMemberInfo(){
 	});
 }
 
-// Writes fencer's info to a modal
-function writeFencerInfo(){
-	document.getElementById('memberInfoModal').innerHTML = 
-	'<div class="row modal-data">' +
-		// Personal details, Name(first and last), Age, Gender and Weapon
-		'<div class="col-6">' +
-			'<h3>Name</h3>' +
-			'<p class="modal-para">' + fencer[i].lastName + ', ' + fencer[i].firstName + 
-			'<h3>Age</h3>' +
-			'<p class="modal-para">' + fencer[i].age + ' years old' +
-			'<h3>Gender</h3>' +
-			'<p class="modal-para">' + fencer[i].gender +
-			'<h3>Weapon</h3>' + 
-			'<p class="modal-para">' + fencer[i].weapon[0] + 
-		'</div>' +
-		// Contact information, Fencer's email, fencer's number, emergency number
-		'<div class="col-6">' +
-			'<h3 class="r-align">Fencer\'s Email</h3>' + 
-			'<p class="modal-para r-align">' + fencer[i].fencerEmail + '</p>' +
-			'<h3 class="r-align">Fencer\'s Number</h3>' +
-			'<p class="modal-para r-align">' + fencer[i].fencerNumber + '</p>' +
-			'<h3 class="r-align">Emergency Number</h3>' + 
-			'<p class="modal-para r-align">' + fencer[i].emergencyNumber + '<p>' +
-		'</div>' +
-	'</div>';
+// Function to open the add a new member modal
+function openAddNewMember(){
+	$('#addNewMemberBtn').on('click', function(){
+		$('.add-member-modal').show();
+	});
 }
+openAddNewMember();
+function closeAddNewMember(){
+	$('.close-bar').on('click', function(){
+		$('.add-member-modal').hide();
+	});
+	$('#addMemberToRegistryBtn').on('click', function(){
+		$('.add-member-modal').hide();
+	});
+}
+closeAddNewMember();
 
 // --- Filters that can be applied to the array to find age range and weapon fenced ---
 
@@ -463,7 +480,7 @@ function sortTableAlphabetical(n){
 	}
 }
 
-// Toggleble heading to sort by age
+// ------ Toggleble heading to sort by age (Work in progress) -------
 function sortTableinteger(n){
 	// All of the variables being declared at the start
 	var table, rows, switching, i, x, y, shouldSwitch, switchcount = 0;
