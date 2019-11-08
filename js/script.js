@@ -179,6 +179,16 @@ var weaponSelected = 'blank';
 function clear(){
 	document.getElementById('registryResults').innerHTML = '';
 }
+function clearField(){
+	document.getElementById('firstName').value = '';
+	document.getElementById('lastName').value = '';
+	document.getElementById('age').value = '';
+	document.getElementById('genderSelect').value = 1;
+	document.getElementById('fencerEmail').value = '';
+	document.getElementById('fencerNumber').value = '';
+	document.getElementById('emergencyNumber').value = '';
+	document.getElementById('fencerWeapon').value = 1; 
+}
 
 // Function that writes appropriate information to results table
 function writeFencers(){
@@ -284,11 +294,34 @@ function closeAddNewMember(){
 	$('.close-bar').on('click', function(){
 		$('.add-member-modal').hide();
 	});
-	$('#addMemberToRegistryBtn').on('click', function(){
-		$('.add-member-modal').hide();
-	});
+	// $('#addMemberToRegistryBtn').on('click', function(){
+	// 	$('.add-member-modal').hide();
+	// });
 }
 closeAddNewMember();
+// Function to open and close modal ends
+
+// Function that will take the fields that have been inputted and add them to the array
+document.getElementById('addMemberToRegistryBtn').addEventListener('click', function(){
+	var fencerFirstName = document.getElementById('firstName').value;
+	var fencerLastName = document.getElementById('lastName').value;
+	var fencerAge = parseInt(document.getElementById('age').value);
+	var fencerGender = document.getElementById('genderSelect').value;
+	var fencersEmail = document.getElementById('fencerEmail').value;
+	var fencersNumber = document.getElementById('fencerNumber').value;
+	var emergencyContact = document.getElementById('emergencyNumber').value;
+	var fencerChosenWeapon = document.getElementById('fencerWeapon').value;
+	var newID = 116;
+	for(i=0; fencer.length; i++){
+		if(fencer[i].id == )
+	}
+	fencer.push({})
+	clearField();
+});
+function addNewFencerToArray(){
+	
+}
+addNewFencerToArray();
 
 // --- Filters that can be applied to the array to find age range and weapon fenced ---
 

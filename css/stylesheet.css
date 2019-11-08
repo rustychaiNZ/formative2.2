@@ -73,8 +73,15 @@ body{
 h3{
 	font-size: 2em;
 }
+select{
+	display: block;
+}
+.add-member-label{
+	font-size: 1.4em;
+}
 .r-align{
 	text-align: right;
+	display: block;
 }
 .member-popup{
 	color: blue;

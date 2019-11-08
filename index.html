@@ -113,33 +113,43 @@
 						<div class="row modal-data">
 							<div class="col-md-6">
 								<!-- First name -->
-								<label class="col-form-label" for="firstName">First Name</label>
+								<label class="col-form-label add-member-label" for="firstName">First Name</label>
 								<input type="text" id="firstName" class="form-control" placeholder="Enter First Name">
 								<!-- Last name -->
-								<label class="col-form-label" for="lastName">Last Name</label>
+								<label class="col-form-label add-member-label" for="lastName">Last Name</label>
 								<input type="text" id="lastName" class="form-control" placeholder="Enter Last Name">
 								<!-- Age -->
-								<div class="col-12">
-									<label class="col-form-label" for="age">Age</label>
-									<input type="spinner" id="age">
+								<div class="col-12 margin-0">
+									<label class="col-form-label add-member-label" for="age">Age</label>
+									<input type="number" id="age" min="6" max="90" class="form-control col-6" placeholder="6 - 90">
 								</div>
 
 								<!-- Fencer's Gender -->
-								<label class="col-form-label" for="gender">Gender</label>
-								<select class="form-control" id="weaponSelect">
-									
+								<label class="col-form-label add-member-label" for="gender">Gender</label>
+								<select class="form-control" id="genderSelect" placeholder="Please Select">
+									<option value="1">-Undefined-</option>
+									<option value="2">Male</option>
+									<option value="3">Female</option>
 								</select>
 							</div>
 							<div class="col-md-6">
 								<!-- Fencer's email -->
-								<label class="col-form-label" for="fencerEmail">Fencer's Email</label>
-								<input type="email" id="fencerEmail" class="form-control">
+								<label class="col-form-label add-member-label r-align" for="fencerEmail">Fencer's Email</label>
+								<input type="email" id="fencerEmail" class="form-control r-align" placeholder="Email">
 								<!-- Fencer's number -->
-								<label class="col-form-label" for="fencerNumber">Fencer's Number</label>
-								<input type="text" id="fencerNumber" class="form-control">
+								<label class="col-form-label add-member-label r-align" for="fencerNumber">Fencer's Number</label>
+								<input type="text" id="fencerNumber" class="form-control r-align" placeholder="02x xxx xxxx">
 								<!-- Fencer's emergency number -->
-								<label class="col-form-label" for="emergencyNumber">Emergency Number</label>
-								<input type="text" id="emergencyNumber" class="form-control">
+								<label class="col-form-label add-member-label r-align" for="emergencyNumber">Emergency Number</label>
+								<input type="text" id="emergencyNumber" class="form-control r-align" placeholder="Emergency number 02x xxx xxxx">
+								<!-- Fencer's weapon of choice -->
+								<label class="col-form-label add-member-label r-align" for="fencerWeapon">Fencer's Chosen Weapon</label>
+								<select class="form-control r-align" id="fencerWeapon">
+									<option value="1">-Undefined-</option>
+									<option value="2">Foil</option>
+									<option value="3">Sabre</option>
+									<option value="4">Epee</option>
+								</select>
 							</div>
 							<button class="btn btn-block btn-success add-member-btn" id="addMemberToRegistryBtn">Add Member</button>
 						</div>
