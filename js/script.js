@@ -221,7 +221,7 @@ function writeFencerInfo(){
 	document.getElementById('memberInfoModal').innerHTML = 
 	'<div class="row modal-data">' +
 		// Personal details, Name(first and last), Age, Gender and Weapon
-		'<div class="col-6">' +
+		'<div class="col-md-6">' +
 			'<h3>Name</h3>' +
 			'<p class="modal-para">' + fencer[i].lastName + ', ' + fencer[i].firstName + 
 			'<h3>Age</h3>' +
@@ -232,7 +232,7 @@ function writeFencerInfo(){
 			'<p class="modal-para">' + fencer[i].weapon[0] + 
 		'</div>' +
 		// Contact information, Fencer's email, fencer's number, emergency number
-		'<div class="col-6">' +
+		'<div class="col-md-6">' +
 			'<h3 class="r-align">Fencer\'s Email</h3>' + 
 			'<p class="modal-para r-align">' + fencer[i].fencerEmail + '</p>' +
 			'<h3 class="r-align">Fencer\'s Number</h3>' +

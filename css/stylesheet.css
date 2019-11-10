@@ -10,7 +10,7 @@ body{
 .jumbotron{
 	border-radius: 0;
 	margin-bottom: 0;
-	background-color: #dedede;
+	background-color: #231f20;
 }
 .btn-secondary{
 	background-color: #272f38;
@@ -18,8 +18,11 @@ body{
 .btn-secondary:hover{
 	background-color: #3d4a59;
 }
-.thead-dark{
+.table .thead-dark th{
 	background-color: #272f38;
+}
+.display-3{
+	color: white;
 }
 
 /* Custom */
@@ -47,7 +50,9 @@ body{
 	cursor: pointer;
 }
 .member-popup:hover{
-	color: #272f38;
+  color: #272f38;
+}
+tr:hover .member-popup {
 	text-decoration: underline;
 }
 h3{
@@ -57,7 +62,7 @@ select{
 	display: block;
 }
 .sort-icon{
-	font-size: 1.5em !important;
+	font-size: 1.9em !important;
 	cursor: pointer;
 }
 .sort-icon:hover{
@@ -92,7 +97,6 @@ select{
 	background: #fff;
 	width: 800px;
 	margin: 10% auto;
-	box-shadow: 10px 10px 25px #333;
 }
 .close-bar{
 	font-size: 50px;
@@ -129,5 +133,23 @@ select{
 	.display-3{
 		text-align: center;
 		font-size: 4em;
+	}
+	#addNewMemberBtn{
+		margin-top: 15px;
+	}
+}
+@media only screen and (max-width: 767px){
+	.member-modal-info{
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		overflow: auto;
+		position: block;
+	}
+	.r-align{
+		text-align: left;
+	}
+	.row{
+		margin: 0;
 	}
 }
