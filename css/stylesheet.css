@@ -1,6 +1,15 @@
 body{
 	background: #353e49;
 }
+table{
+	width: 100%;
+}
+th{
+	width: 33.3%;
+}
+td{
+	width: 33.33%;
+}
 /* Bootstrap */
 .container{
 	background: white;
@@ -23,6 +32,9 @@ body{
 }
 .display-3{
 	color: white;
+}
+.margin-0{
+	padding: 0;
 }
 
 /* Custom */
@@ -145,6 +157,10 @@ select{
 		margin: 0;
 		overflow: auto;
 		position: block;
+	}
+	.modal-data{
+		padding-left: 5px;
+		padding-right: 5px;
 	}
 	.r-align{
 		text-align: left;

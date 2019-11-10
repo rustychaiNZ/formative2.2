@@ -300,6 +300,8 @@ function closeAddNewMember(){
 closeAddNewMember();
 // Function to open and close modal ends
 
+var fencerNewGender = '';
+var fencerNewWeapon = '';
 // Function that will take the fields that have been inputted and add them to the array
 document.getElementById('addMemberToRegistryBtn').addEventListener('click', function(){
 	// Takes users input for first name and stores it
@@ -335,9 +337,9 @@ document.getElementById('addMemberToRegistryBtn').addEventListener('click', func
 	}
 	// If the user selects 'Male', it is saved to a new variable to be inputted into the object
 	else if(fencerGender == 2){
-		var fencerNewGender = 'Male';
+		fencerNewGender = 'Male';
 	} else if(fencerGender == 3){ // If the user inputs femaile, it is saved to a new variable and inputted into the object
-		var fencerNewGender = 'Female';
+		fencerNewGender = 'Female';
 	}
 	// Takes the user input for email and stores it in the variable
 	var fencersEmail = document.getElementById('fencerEmail').value;
@@ -367,11 +369,11 @@ document.getElementById('addMemberToRegistryBtn').addEventListener('click', func
 		return false;
 	}
 	if(fencerChosenWeapon == 2){
-		var fencerNewWeapon = 'Foil';
+		fencerNewWeapon = 'Foil';
 	} else if(fencerChosenWeapon == 3){
-		var fencerNewWeapon = 'Sabre';
+		fencerNewWeapon = 'Sabre';
 	} else if(fencerChosenWeapon == 4){
-		var fencerNewWeapon = 'Epee';
+		fencerNewWeapon = 'Epee';
 	}
 	// Generates a new ID for the member. Looks at all of the exsisting members in the array and adds 101 to give them their new ID
 	var newID = fencer.length + 101;
@@ -390,6 +392,7 @@ document.getElementById('addMemberToRegistryBtn').addEventListener('click', func
 	// Clears all of the fields after entering in all details
 	clearField();
 	writeFencers();
+	openMemberInfo();
 });
 
 // --- Filters that can be applied to the array to find age range and weapon fenced ---
