@@ -2,7 +2,7 @@
 var fencer = [
 	// First member of the club
 	{
-		id: 'f101',
+		id: 101,
 		firstName: 'Janet',
 		lastName: 'HIGH',
 		weapon: ['Foil', 'blank'],
@@ -13,7 +13,7 @@ var fencer = [
 		emergencyNumber: '027 895 6875'
 	},
 	{
-		id: 'f102',
+		id: 102,
 		firstName: 'Gregory',
 		lastName: 'EDENS',
 		weapon: ['Sabre', 'blank'],
@@ -24,7 +24,7 @@ var fencer = [
 		emergencyNumber: '027 596 8423'
 	},
 	{
-		id: 'f103',
+		id: 103,
 		firstName: 'James',
 		lastName: 'GABLE',
 		weapon: ['Epee', 'blank'],
@@ -35,7 +35,7 @@ var fencer = [
 		emergencyNumber: '027 456 8923'
 	},
 	{
-		id: 'f104',
+		id: 104,
 		firstName: 'Una',
 		lastName: 'HAJEK',
 		weapon: ['Foil', 'blank'],
@@ -46,7 +46,7 @@ var fencer = [
 		emergencyNumber: '022 897 5687'
 	},
 	{
-		id: 'f105',
+		id: 105,
 		firstName: 'Ruth',
 		lastName: 'REGAN',
 		weapon: ['Sabre', 'blank'],
@@ -57,7 +57,7 @@ var fencer = [
 		emergencyNumber: '021 568 7892'
 	},
 	{
-		id: 'f106',
+		id: 106,
 		firstName: 'Gary',
 		lastName: 'ARIAS',
 		weapon: ['Foil', 'blank'],
@@ -68,7 +68,7 @@ var fencer = [
 		emergencyNumber: '022 568 7896'
 	},
 	{
-		id: 'f107',
+		id: 107,
 		firstName: 'Nicole',
 		lastName: 'SHEA',
 		weapon: ['Epee', 'blank'],
@@ -79,7 +79,7 @@ var fencer = [
 		emergencyNumber: '022 578 4562'
 	},
 	{
-		id: 'f108',
+		id: 108,
 		firstName: 'Garry',
 		lastName: 'BORDON',
 		weapon: ['Foil', 'blank'],
@@ -90,7 +90,7 @@ var fencer = [
 		emergencyNumber: '022 892 4568'
 	},
 	{
-		id: 'f109',
+		id: 109,
 		firstName: 'Jamie',
 		lastName: 'DAY',
 		weapon: ['Epee', 'blank'],
@@ -101,7 +101,7 @@ var fencer = [
 		emergencyNumber: '021 895 5987'
 	},
 	{
-		id: 'f110',
+		id: 110,
 		firstName: 'Nick',
 		lastName: 'BAILY',
 		weapon: ['Sabre', 'blank'],
@@ -112,7 +112,7 @@ var fencer = [
 		emergencyNumber: '022 596 5687'
 	},
 	{
-		id: 'f111',
+		id: 111,
 		firstName: 'Michael',
 		lastName: 'GLOVER',
 		weapon: ['Foil', 'blank'],
@@ -123,7 +123,7 @@ var fencer = [
 		emergencyNumber: '021 567 5621'
 	},
 	{
-		id: 'f112',
+		id: 112,
 		firstName: 'Jennifer',
 		lastName: 'SHIELDS',
 		weapon: ['Sabre', 'blank'],
@@ -134,7 +134,7 @@ var fencer = [
 		emergencyNumber: '021 895 4568'
 	},
 	{
-		id: 'f113',
+		id: 113,
 		firstName: 'Laura',
 		lastName: 'JONES',
 		weapon: ['Epee', 'blank'],
@@ -145,7 +145,7 @@ var fencer = [
 		emergencyNumber: '022 489 6578'
 	},
 	{
-		id: 'f114',
+		id: 114,
 		firstName: 'Jarrett',
 		lastName: 'JOHNSON',
 		weapon: ['Sabre', 'blank'],
@@ -156,7 +156,7 @@ var fencer = [
 		emergencyNumber: '022 657 8956'
 	},
 	{
-		id: 'f115',
+		id: 115,
 		firstName: 'David',
 		lastName: 'ROBBS',
 		weapon: ['Epee', 'blank'],
@@ -166,7 +166,6 @@ var fencer = [
 		fencerNumber: '022 527 9886',
 		emergencyNumber: '027 568 7892'
 	},
-
 ];
 // Variable used to store minimum age in filtered range
 var minimumAge = 0;
@@ -261,7 +260,7 @@ function openMemberInfo(){
 		$('.member-modal').show();
 		for(i=0; i<fencer.length; i++) {
 			// This looks at the id defined and checksfor equivalence with the fencer's id that was clicked. It will dispaly the information
-			if(this.id.trim() == fencer[i].id.trim()) {
+			if(this.id == fencer[i].id) {
 				// Prints the dog that was clicked into the modal with the correlating information
 				writeFencerInfo();
 			}
@@ -294,34 +293,104 @@ function closeAddNewMember(){
 	$('.close-bar').on('click', function(){
 		$('.add-member-modal').hide();
 	});
-	// $('#addMemberToRegistryBtn').on('click', function(){
-	// 	$('.add-member-modal').hide();
-	// });
+	$('#addMemberToRegistryBtn').on('click', function(){
+		$('add-member-modal').hide();
+	});
 }
 closeAddNewMember();
 // Function to open and close modal ends
 
 // Function that will take the fields that have been inputted and add them to the array
 document.getElementById('addMemberToRegistryBtn').addEventListener('click', function(){
+	// Takes users input for first name and stores it
 	var fencerFirstName = document.getElementById('firstName').value;
-	var fencerLastName = document.getElementById('lastName').value;
-	var fencerAge = parseInt(document.getElementById('age').value);
-	var fencerGender = document.getElementById('genderSelect').value;
-	var fencersEmail = document.getElementById('fencerEmail').value;
-	var fencersNumber = document.getElementById('fencerNumber').value;
-	var emergencyContact = document.getElementById('emergencyNumber').value;
-	var fencerChosenWeapon = document.getElementById('fencerWeapon').value;
-	var newID = 116;
-	for(i=0; fencer.length; i++){
-		if(fencer[i].id == )
+	// Checks to see if the user has inputted anything into the name field
+	if(fencerFirstName == ''){
+		alert('The Member must have a first name');
+		// won't let the form select if nothing has been entered 
+		return false;
 	}
-	fencer.push({})
+	// Takes the user input for last name and stores it in a variable
+	var fencerLastName = document.getElementById('lastName').value;
+	// Checks to see if the user has inputted anything into the field
+	if(fencerLastName == ''){
+		alert('The Member must have a last name');
+		return false;
+	}
+	// Converts surname into upper case
+	var fencerSurname = fencerLastName.toUpperCase();
+	// Takes the user's input for age and stores it in the variable
+	var fencerAge = parseInt(document.getElementById('age').value);
+	// Checks to make sure that the user has submitted a number
+	if(isNaN(fencerAge)){
+		alert('The Member must have an age');
+		return false;
+	}
+	// Takes the user input for gender
+	var fencerGender = document.getElementById('genderSelect').value;
+	// If the user hasn't selected a gender yet, doesn't allow form to be submitted
+	if(fencerGender == 1){
+		alert('Must select a gender');
+		return false;
+	}
+	// If the user selects 'Male', it is saved to a new variable to be inputted into the object
+	else if(fencerGender == 2){
+		var fencerNewGender = 'Male';
+	} else if(fencerGender == 3){ // If the user inputs femaile, it is saved to a new variable and inputted into the object
+		var fencerNewGender = 'Female';
+	}
+	// Takes the user input for email and stores it in the variable
+	var fencersEmail = document.getElementById('fencerEmail').value;
+	// If the user hasn't entered anything, doesn't allow the form to be submitted
+	if(fencersEmail == ''){
+		alert('The Member must have an email');
+		return false;
+	}
+	// Takes the user input for fencer's phone number and stores it in the variable
+	var fencersNumber = document.getElementById('fencerNumber').value;
+	// If the user hasn't inputted anything into the field, doesn't allow the form to be submitted
+	if(fencersNumber == ''){
+		alert('The Member must have a phone number');
+		return false;
+	}
+	// Takes the user's input for fencer's emergency contact number and store it in the variable
+	var emergencyContact = document.getElementById('emergencyNumber').value;
+	// If the user hasn't inputted anything into the field, doesn't allow the form to be submitted
+	if(emergencyContact == ''){
+		alert('The Member must have an emergency phone number');
+		return false;
+	}
+	// Takes the user's input for for
+	var fencerChosenWeapon = document.getElementById('fencerWeapon').value;
+	if(fencerGender == 1){
+		alert('Must select a weapon');
+		return false;
+	}
+	if(fencerChosenWeapon == 2){
+		var fencerNewWeapon = 'Foil';
+	} else if(fencerChosenWeapon == 3){
+		var fencerNewWeapon = 'Sabre';
+	} else if(fencerChosenWeapon == 4){
+		var fencerNewWeapon = 'Epee';
+	}
+	// Generates a new ID for the member. Looks at all of the exsisting members in the array and adds 101 to give them their new ID
+	var newID = fencer.length + 101;
+	// Adds the new fencer to the array
+	fencer.push({
+		id: newID,
+		firstName: fencerFirstName,
+		lastName: fencerSurname,
+		weapon: [fencerNewWeapon, 'blank'],
+		age: fencerAge,
+		gender: fencerNewGender,
+		fencerEmail: fencersEmail,
+		fencerNumber: fencersNumber,
+		emergencyNumber: emergencyContact
+	});
+	// Clears all of the fields after entering in all details
 	clearField();
+	writeFencers();
 });
-function addNewFencerToArray(){
-	
-}
-addNewFencerToArray();
 
 // --- Filters that can be applied to the array to find age range and weapon fenced ---
 
@@ -329,9 +398,7 @@ addNewFencerToArray();
 function filterWeaponSelect(){
 	// Takes value from weapon select 
 	var filteredWeapon = document.getElementById('weaponSelect').value;
-
 	clear();
-	
 	// No weapon is selected
 	if(filteredWeapon == 1){
 		weaponSelected = 'blank';
@@ -356,9 +423,7 @@ function filterWeaponSelect(){
 function minAgeFilter(){
 	// takes value from min age select
 	var minAge = document.getElementById('minAgeSelector').value;
-
 	clear();
-
 	// No min age selected
 	if(minAge == 1){
 		minimumAge = 0;
@@ -395,9 +460,7 @@ function minAgeFilter(){
 function maxAgeFilter(){
 	// takes value from max age select
 	var maxAge = document.getElementById('maxAgeSelector').value;
-
 	clear();
-
 	// No max age selected
 	if(maxAge == 1){
 		maximumAge = 99;
@@ -430,8 +493,6 @@ function maxAgeFilter(){
 	openMemberInfo();
 }
 
-
-
 // Resets filter options
 function resetWeaponFilter(){
 	document.getElementById('weaponSelect').value = 1;
@@ -459,6 +520,50 @@ document.getElementById('allFencerBtn').addEventListener('click', function(){
 	minimumAge = 0;
 	weaponSelected = 'blank';
 	openMemberInfo();
+});
+
+// --- Adding sort icons when sorting alphabetically
+// Begins by hiding the ascending and descending icons
+$('#sortDescAlphabeticalBtn').hide();
+$('#sortAscAlphabeticalBtn').hide();
+// When the sort button is pressed, the ascending icon is displayed
+$('#sortAlphabeticalBtn').on('click', function(){
+	$('#sortAlphabeticalBtn').hide();
+	$('#sortAscAlphabeticalBtn').show();
+});
+// When the ascending icon is pressed, the descending icon is displayed
+$('#sortAscAlphabeticalBtn').on('click', function(){
+	$('#sortAscAlphabeticalBtn').hide();
+	$('#sortDescAlphabeticalBtn').show();
+});
+// When the descending icon is pressed, the ascending icon is displayed
+$('#sortDescAlphabeticalBtn').on('click', function(){
+	$('#sortDescAlphabeticalBtn').hide();
+	$('#sortAscAlphabeticalBtn').show();
+});
+// When the all fencer button is pressed, the alphabetical order is shuffled so the button is returned to its default state
+$('#allFencerBtn').on('click', function(){
+	$('#sortAscAlphabeticalBtn').hide();
+	$('#sortDescAlphabeticalBtn').hide();
+	$('#sortAlphabeticalBtn').show();
+});
+// When the min age is selected is pressed, the alphabetical order is shuffled so the button is returned to its default state
+$('#minAgeSelector').on('click', function(){
+	$('#sortAscAlphabeticalBtn').hide();
+	$('#sortDescAlphabeticalBtn').hide();
+	$('#sortAlphabeticalBtn').show();
+});
+// When the max age is selected is pressed, the alphabetical order is shuffled so the button is returned to its default state
+$('#maxAgeSelector').on('click', function(){
+	$('#sortAscAlphabeticalBtn').hide();
+	$('#sortDescAlphabeticalBtn').hide();
+	$('#sortAlphabeticalBtn').show();
+});
+// When the weapon selecect is pressed, the alphabetical order is shuffled so the button is returned to its default state
+$('#weaponSelect').on('click', function(){
+	$('#sortAscAlphabeticalBtn').hide();
+	$('#sortDescAlphabeticalBtn').hide();
+	$('#sortAlphabeticalBtn').show();
 });
 
 // Toggleble heading to sort by name of fencers
@@ -513,57 +618,7 @@ function sortTableAlphabetical(n){
 	}
 }
 
-// ------ Toggleble heading to sort by age (Work in progress) -------
-function sortTableinteger(n){
-	// All of the variables being declared at the start
-	var table, rows, switching, i, x, y, shouldSwitch, switchcount = 0;
-	// Adds the table output to a variable
-	table = document.getElementById('memberTable');
-	switching = true;
-	// Set the sorting direction to ascending:
-	dir = "asc";
-	// Make a loop that will continue until no switching has been done:
-	while(switching){
-		// Start by saying: no switching is done:
-		switching = false;
-		rows = table.rows;
-		// Loop through all table rows (except the first, which contains table headers):
-		for (i = 1; i < (rows.length - 1); i++) {
-			// Start by saying there should be no switching:
-			shouldSwitch = false;
-			//Get the two elements you want to compare, one from current row and one from the next:
-			x = rows[i].getElementsByTagName("TD")[n];
-			y = rows[i + 1].getElementsByTagName("TD")[n];
-			// Check if the two rows should switch place, based on the direction, asc or desc:
-			if(dir == 'asc'){
-				if (Number(x.innerHTML) > Number(y.innerHTML)){
-				//if so, mark as a switch and break the loop:
-				shouldSwitch = true;
-				break;
-				}
-			} else if (dir == "desc"){
-				if (Number(x.innerHTML) > Number(y.innerHTML)){
-					//if so, mark as a switch and break the loop:
-					shouldSwitch = true;
-					break;
-				}
-			}
-		}
-		if (shouldSwitch){
-			//If a switch has been marked, make the switch and mark that a switch has been done:
-			rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
-			switching = true;
-			//Each time a switch is done, increase this count by 1:
-			switchcount ++;
-		} else {
-			// If no switching has been done AND the direction is "asc", set the direction to "desc" and run the while loop again.
-			if (switchcount == 0 && dir == "asc"){
-				dir = "desc";
-				switching = true;
-			}
-		}
-	}
-}
+
 
 
 

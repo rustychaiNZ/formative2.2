@@ -15,13 +15,20 @@
 	<body>
 		<!-- Heading for the registry -->
 		<div class="jumbotron">
-			<h1 class="text-center">HVFC Club Registry</h1>
+			<div class="row">
+				<div class="col-lg-4">
+					<img src="assets/hvfcLogoSolid.png" class="logo mAuto dBlock">
+				</div>
+				<div class="col-lg-8 d-flex align-items-center">
+					<h1 class="display-3 text-center">HVFC Club Registry</h1>
+				</div>
+			</div>
 		</div>
 
 		<!-- Body container -->
 		<div class="container">
 			<!-- Button container -->
-			<div class="btn-container align-items-center row justify-content-center row">
+			<div class="btn-container align-items-center row d-flex justify-content-center">
 				<div class="col">
 					<button id="allFencerBtn" class="btn btn-secondary btn-sm">All Fencers</button>
 				</div>
@@ -76,8 +83,8 @@
 			<table class="table table-hover table-striped text-center" id="memberTable">
 				<thead class="thead-dark">
 					<tr>
-						<th class="table-sort" id="sortByName" onclick="sortTableAlphabetical(0)">Name</th>
-						<th class="table-sort" onclick="sortTableinteger(0)">Age</th> <!-- Work in progress -->
+						<th class="table-sort" id="sortByName"><i class="fa fa-sort sort-icon" id="sortAlphabeticalBtn" aria-hidden="true" onclick="sortTableAlphabetical(0)"></i><i class="fa fa-sort-desc sort-icon" aria-hidden="true" id="sortDescAlphabeticalBtn" onclick="sortTableAlphabetical(0)"></i><i class="fa fa-sort-asc sort-icon" aria-hidden="true" id="sortAscAlphabeticalBtn" onclick="sortTableAlphabetical(0)"></i> Name</th>
+						<th class="table-sort">Age</th> <!-- Work in progress -->
 						<th>Weapon</th>
 					</tr>
 				</thead>
@@ -114,14 +121,14 @@
 							<div class="col-md-6">
 								<!-- First name -->
 								<label class="col-form-label add-member-label" for="firstName">First Name</label>
-								<input type="text" id="firstName" class="form-control" placeholder="Enter First Name">
+								<input type="text" id="firstName" class="form-control" placeholder="Enter First Name" required>
 								<!-- Last name -->
 								<label class="col-form-label add-member-label" for="lastName">Last Name</label>
-								<input type="text" id="lastName" class="form-control" placeholder="Enter Last Name">
+								<input type="text" id="lastName" class="form-control" placeholder="Enter Last Name" required>
 								<!-- Age -->
 								<div class="col-12 margin-0">
 									<label class="col-form-label add-member-label" for="age">Age</label>
-									<input type="number" id="age" min="6" max="90" class="form-control col-6" placeholder="6 - 90">
+									<input type="number" id="age" min="6" max="90" class="form-control col-6" placeholder="6 - 90" required>
 								</div>
 
 								<!-- Fencer's Gender -->
@@ -135,13 +142,13 @@
 							<div class="col-md-6">
 								<!-- Fencer's email -->
 								<label class="col-form-label add-member-label r-align" for="fencerEmail">Fencer's Email</label>
-								<input type="email" id="fencerEmail" class="form-control r-align" placeholder="Email">
+								<input type="email" id="fencerEmail" class="form-control r-align" placeholder="Email" required>
 								<!-- Fencer's number -->
 								<label class="col-form-label add-member-label r-align" for="fencerNumber">Fencer's Number</label>
-								<input type="text" id="fencerNumber" class="form-control r-align" placeholder="02x xxx xxxx">
+								<input type="text" id="fencerNumber" class="form-control r-align" placeholder="02x xxx xxxx" required>
 								<!-- Fencer's emergency number -->
 								<label class="col-form-label add-member-label r-align" for="emergencyNumber">Emergency Number</label>
-								<input type="text" id="emergencyNumber" class="form-control r-align" placeholder="Emergency number 02x xxx xxxx">
+								<input type="text" id="emergencyNumber" class="form-control r-align" placeholder="Emergency number 02x xxx xxxx" required>
 								<!-- Fencer's weapon of choice -->
 								<label class="col-form-label add-member-label r-align" for="fencerWeapon">Fencer's Chosen Weapon</label>
 								<select class="form-control r-align" id="fencerWeapon">
@@ -151,7 +158,7 @@
 									<option value="4">Epee</option>
 								</select>
 							</div>
-							<button class="btn btn-block btn-success add-member-btn" id="addMemberToRegistryBtn">Add Member</button>
+							<button class="btn btn-block btn-success add-member-btn" id="addMemberToRegistryBtn" type="submit">Add Member</button>
 						</div>
 					</div>
 				</div>
@@ -162,6 +169,8 @@
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+		<!-- Font Awesome CDN -->
+		<script src="https://use.fontawesome.com/4767738c46.js"></script>
 		<!-- Optional JavaScript -->
 		<script src="js/script.js"></script>
 

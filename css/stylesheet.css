@@ -1,5 +1,5 @@
 body{
-	background: #333;
+	background: #353e49;
 }
 /* Bootstrap */
 .container{
@@ -10,6 +10,16 @@ body{
 .jumbotron{
 	border-radius: 0;
 	margin-bottom: 0;
+	background-color: #dedede;
+}
+.btn-secondary{
+	background-color: #272f38;
+}
+.btn-secondary:hover{
+	background-color: #3d4a59;
+}
+.thead-dark{
+	background-color: #272f38;
 }
 
 /* Custom */
@@ -19,8 +29,39 @@ body{
 .td{
 	width: 33.33%;
 }
-.table-sort{
+.mAuto{
+	margin: auto;
+}
+.dBlock{
+	display: block;
+}
+.logo{
+	width: 100px;
+}
+.r-align{
+	text-align: right;
+	display: block;
+}
+.member-popup{
+	color: #ff706c;
 	cursor: pointer;
+}
+.member-popup:hover{
+	color: #272f38;
+	text-decoration: underline;
+}
+h3{
+	font-size: 2em;
+}
+select{
+	display: block;
+}
+.sort-icon{
+	font-size: 1.5em !important;
+	cursor: pointer;
+}
+.sort-icon:hover{
+	color: #ff706c;
 }
 
 /* Modal styling */
@@ -58,7 +99,7 @@ body{
 	text-align: right;
 	padding: 0 20px;
 	cursor: pointer;
-	background-color: #2e3d54;
+	background-color: #272f38;
 	color: #edf1f7;
 }
 .close-bar:hover{
@@ -70,26 +111,23 @@ body{
 .modal-para{
 	font-size: 1.3em;
 }
-h3{
-	font-size: 2em;
-}
-select{
-	display: block;
-}
 .add-member-label{
 	font-size: 1.4em;
-}
-.r-align{
-	text-align: right;
-	display: block;
-}
-.member-popup{
-	color: blue;
-	cursor: pointer;
 }
 .modal-data{
 	padding: 15px 50px;
 }
 .add-member-btn{
 	margin-top: 15px;
+}
+
+@media only screen and (max-width: 990px){
+	h1{
+		text-align: center;
+		margin: auto;
+	}
+	.display-3{
+		text-align: center;
+		font-size: 4em;
+	}
 }
