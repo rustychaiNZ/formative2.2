@@ -261,7 +261,7 @@ function openMemberInfo(){
 		for(i=0; i<fencer.length; i++) {
 			// This looks at the id defined and checksfor equivalence with the fencer's id that was clicked. It will dispaly the information
 			if(this.id == fencer[i].id) {
-				// Prints the dog that was clicked into the modal with the correlating information
+				// Prints the fencer that was clicked into the modal with the correlating information
 				writeFencerInfo();
 			}
 		}
